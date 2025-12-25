@@ -22,6 +22,11 @@
         inherit system;
         overlays = [
           steam-fetcher.overlays.default
+          (final: prev: {
+            steam-fetcher = prev.steam-fetcher.overrideAttrs (old: {
+              builder = ./builder.sh;
+            });
+           })
           self.overlays.default
         ];
       };
@@ -43,16 +48,6 @@
           ++ lintersFor system;
       };
     });
-
-    checks = forAllSystems (system: let
-      pkgs = pkgsFor system;
-    in {
-      fmt = pkgs.runCommandLocal "alejandra" {} ''
-        ${pkgs.alejandra}/bin/alejandra --check ${./.} > "$out"
-      '';
-    });
-
-    formatter = forAllSystems (system: (pkgsFor system).alejandra);
 
     nixosModules = rec {
       valheim = import ./nixos-modules/valheim.nix {inherit self steam-fetcher;};

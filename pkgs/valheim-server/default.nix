@@ -5,7 +5,7 @@
 }:
 stdenv.mkDerivation (finalAttrs: {
   name = "valheim-server";
-  version = "0.219.13";
+  version = "0.221.4";
   src = fetchSteam {
     inherit (finalAttrs) name;
     appId = "896660";
@@ -41,7 +41,7 @@ stdenv.mkDerivation (finalAttrs: {
     changelog = "https://store.steampowered.com/news/app/892970?updates=true";
     sourceProvenance = with sourceTypes; [binaryBytecode binaryNativeCode];
     license = licenses.unfree;
-    maintainers = with maintainers; [aidalgol];
+    maintainers = with maintainers; [ryanmartel];
     platforms = ["x86_64-linux"];
   };
 })

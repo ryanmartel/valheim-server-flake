@@ -46,7 +46,7 @@ stdenv.mkDerivation (finalAttrs: {
       gpl3Only # Il2CppInterop
       mit # HarmonyX, MonoMod, cecil, Cpp2IL, .NET Runtime
     ];
-    maintainers = with maintainers; [aidalgol];
+    maintainers = with maintainers; [ryanmartel];
     inherit (valheim-server.meta) platforms;
   };
 })
