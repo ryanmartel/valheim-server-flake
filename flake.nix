@@ -2,7 +2,7 @@
   description = "NixOS module for the Valheim dedicated server";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
     steam-fetcher = {
       url = "github:nix-community/steam-fetcher";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,7 +21,7 @@
       import nixpkgs {
         inherit system;
         overlays = [
-          steam-fetcher.overlays.default
+          steam-fetcher.overlay
           (final: prev: {
             steam-fetcher = prev.steam-fetcher.overrideAttrs (old: {
               builder = ./builder.sh;
