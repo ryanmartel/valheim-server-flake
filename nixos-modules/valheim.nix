@@ -31,6 +31,15 @@ in {
         '';
     };
 
+    steam_username = lib.mkOption {
+      type = with lib.types; nullOr str;
+      default = null;
+      example = "user";
+      description = lib.mdDoc ''
+        username to use for steam-fetch
+        '';
+    };
+
     port = lib.mkOption {
       type = lib.types.port;
       default = 2456;
@@ -375,6 +384,7 @@ lib.strings.concatStringsSep " " ([
 ]
 ++ (lib.lists.optional cfg.crossplay "-crossplay")
 ++ (lib.lists.optional (cfg.preset != null) "-preset \"${cfg.preset}\"")
+++ (lib.lists.optional (cfg.steam_username != null) "-username \"${cfg.steam_username}\"")
 ++ (lib.lists.optional cfg.noGraphics "-nographics"));
 };
 };
