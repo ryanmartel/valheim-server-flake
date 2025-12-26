@@ -5,6 +5,7 @@ source "${stdenv:?}/setup"
 
 # Hack to prevent DepotDownloader from crashing trying to write to
 # ~/.local/share/
+exit 1
 export HOME
 HOME=$(mktemp -d)
 
@@ -23,8 +24,9 @@ if [ -n "$debug" ]; then
 fi
 
 if [ -n "$username" ]; then
-    exit 1
   args+=(-username "$username")
+else
+    exit 1
 fi
 
 if [ -n "$filelist" ]; then
