@@ -407,6 +407,10 @@ assertions = [
   message = "The world name must not be empty.";
 }
 {
+  assertion = cfg.steam_username != "";
+  message = "The username can not be empty as valheim was removed from anonymous depot";
+}
+{
   assertion = (cfg.password != null && cfg.password != "") != (cfg.passwordEnvFile != null);
   message = "Please provide either password or passwordEnvFile but not both";
 }
