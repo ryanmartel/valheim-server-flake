@@ -21,7 +21,7 @@
       import nixpkgs {
         inherit system;
         overlays = [
-          steam-fetcher.overlay
+          # steam-fetcher.overlay
           (final: prev: {
             steam-fetcher = prev.steam-fetcher.overrideAttrs (old: {
               builder = ./builder.sh;
