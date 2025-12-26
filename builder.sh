@@ -24,6 +24,7 @@ fi
 
 if [ -n "$username" ]; then
   args+=(-username "$username")
+  echo $username
 fi
 
 if [ -n "$filelist" ]; then
