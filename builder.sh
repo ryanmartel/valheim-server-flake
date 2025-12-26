@@ -23,8 +23,8 @@ if [ -n "$debug" ]; then
 fi
 
 if [ -n "$username" ]; then
+    exit 1
   args+=(-username "$username")
-  echo $username
 fi
 
 if [ -n "$filelist" ]; then
